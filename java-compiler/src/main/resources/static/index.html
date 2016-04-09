@@ -1,0 +1,112 @@
+<!doctype html>
+<html>
+<head>
+<title>Java Application Compiler</title>
+<link
+	href="css/angular-bootstrap.css"
+	rel="stylesheet">
+<style type="text/css">
+[ng\:cloak], [ng-cloak], .ng-cloak {
+	display: none !important;
+}
+</style>
+</head>
+
+<body ng-app="compiler-app" ng-cloak class="ng-cloak">
+<div ng-controller="navigation as nav" class="container" ng-show="!authenticated">
+<div class="alert alert-danger" ng-show="error">
+	There was a problem logging in. Please try again.
+</div>
+<div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <div class="panel-title">Sign In</div>
+            <div style="float:right; font-size: 80%; position: relative; top:-10px" class=""></div>
+        </div>
+        <div style="padding-top:30px" class="panel-body target">
+            <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
+            <form id="loginform" class="form-horizontal" role="form" ng-submit="nav.login()">
+                <div style="margin-bottom: 25px" class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+
+                    <input id="username" type="text" class="form-control" name="username" value="" placeholder="username" ng-model="nav.credentials.username">
+                </div>
+                <div style="margin-bottom: 25px" class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+
+                    <input id="password" type="password" class="form-control" name="password" placeholder="password" ng-model="nav.credentials.password">
+                </div>
+                <div class="input-group"></div>
+                <div style="margin-top:10px" class="form-group">
+                    <!-- Button 
+                    <div class="col-sm-12 controls"> <a id="" href="#" class="btn btn-success center-block" contenteditable="false" style="">Login  </a>-->
+					<div class="col-sm-12 controls">
+					<button type="submit" class="col-sm-12 controls btn btn-success center-block">Login</button>
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-12 control"></div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+<div ng-controller="navigation as nav" class="container"ng-show="authenticated">
+<div id="mainbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <span class="panel-title">Java Application Compiler</span>
+            <span class="panel-title pull-right glyphicon glyphicon-log-out">
+              <a href="#" ng-click="nav.logout()">SignOut</a>
+            </span>
+            <div style="float:right; font-size: 80%; position: relative; top:-10px" class=""></div>
+        </div>
+        <div style="padding-top:30px" class="panel-body target">
+            <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
+            <form id="filecompilerform"  enctype="multipart/form-data" class="form-horizontal" role="form" ng-submit="nav.compile()">
+                <div style="margin-bottom: 25px" class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-cloud-upload"></i></span>
+
+                    <input id="filestocompile" type="file" class="form-control" name="uploadfile" value="">
+                </div>
+                <div class="input-group"></div>
+                <div style="margin-top:10px" class="form-group">
+                    <!-- Button 
+                    <div class="col-sm-12 controls"> <a id="" href="#" class="btn btn-success center-block" contenteditable="false" style="">Login  </a>-->
+					<div class="col-sm-12 controls">
+					<button type="submit" class="col-sm-12 controls btn btn-success center-block">Compile</button>
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-12 control"></div>
+                </div>
+            </form>
+			<div id="error" class="col-sm-12 controls alert alert-danger fade in hidden">
+	          <strong id="errorText"></strong>
+	        </div>
+			<div id="success" class="col-sm-12 controls alert alert-success fade in hidden">
+	          <strong id="successText"></strong>
+	        </div>
+        </div>
+    </div>
+</div>
+</div>
+
+	<div ng-view class="container"></div>
+	<script src="js/angular-bootstrap.js" type="text/javascript"></script>
+	<script src="js/compiler-app.js"></script>
+		<link rel="stylesheet" type="text/css" media="screen" href='css/jquery-ui/pepper-grinder/jquery-ui-1.8.16.custom.css'/>
+	<link rel="stylesheet" type="text/css" media="screen" href='css/style.css'/>
+	<!-- Bootstrap styles -->
+	<!-- Bootstrap styles -->
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	<!-- Generic page styles -->
+	<!-- CSS to style the file input field as button and adjust the Bootstrap progress bars -->
+	<script type='text/javascript' src='js/jquery-1.6.4.min.js'></script>
+	<script type='text/javascript' src='js/jquery-ui-1.8.16.custom.min.js'></script>
+	<script type='text/javascript' src='js/jquery-fileupload/vendor/jquery.ui.widget.js'></script>
+	<script type='text/javascript' src='js/jquery-fileupload/jquery.iframe-transport.js'></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+</body>
+</html>

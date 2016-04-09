@@ -1,0 +1,19 @@
+Requirements
+------------
+Jdk 1.7.x or higher
+Apache Maven 3.3.x or higher
+
+Technologies used
+-----------------
+	Bootstrap
+	Angularjs
+	spring-rest
+	spring-boot
+	spring-security
+
+How to run
+----------
+1. cd into java-compiler folder
+2. run mvn spring-boot:run
+3. goto localhost:8080 
+4. login credentials are user/password
